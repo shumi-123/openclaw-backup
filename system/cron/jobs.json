@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "e49ede5e-c69d-48e3-af27-e4f0b946f14f",
+      "name": "tencent-docs-poll",
+      "enabled": true,
+      "createdAtMs": 1776517302628,
+      "updatedAtMs": 1776522482219,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/5 * * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "检查腾讯文档协作通道是否有seven的新回复"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "qqbot",
+        "to": "18C23A52B9C49ECDFF548857225048F3"
+      },
+      "state": {
+        "nextRunAtMs": 1776522600000,
+        "lastRunAtMs": 1776522300024,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 182195,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "runningAtMs": 1776522600029
+      }
+    },
+    {
+      "id": "c9413e48-8c58-4a37-a2f3-a91cf9f55799",
+      "name": "workspace-backup",
+      "enabled": true,
+      "createdAtMs": 1776520917425,
+      "updatedAtMs": 1776520917425,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 13 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "执行 workspace 备份脚本，将今日工作区变更推送到 GitHub"
+      },
+      "delivery": {
+        "mode": "none",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1776574800000
+      }
+    },
+    {
+      "id": "599d06f0-f04f-4cbc-b8d3-d42382ea3480",
+      "name": "daily-diary",
+      "enabled": true,
+      "createdAtMs": 1776520983577,
+      "updatedAtMs": 1776520983577,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 21 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "请根据今日工作生成日记，包含：1) 今日主要事件 2) 重要成果 3) 待办未完成事项 4) 明日计划。写完后保存到 memory/YYYY-MM-DD.md"
+      },
+      "delivery": {
+        "mode": "none",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1776603600000
+      }
+    }
+  ]
+}
